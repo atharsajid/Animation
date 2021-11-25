@@ -9,6 +9,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isAnimated = false;
+  double radius = 18;
+  double _width = 200;
+  double _height = 200;
+  Color color = Colors.amber;
+  sizeIncrease() {
+    setState(() {
+      radius = 36;
+      _width = 350;
+      _height = 350;
+      color = Colors.orange;
+    });
+  }
+
+  sizeDecrease() {
+    setState(() {
+      radius = 18;
+      _width = 200;
+      _height = 200;
+      color = Colors.amber;
+    });
+  }
+
   bool value = false;
   @override
   Widget build(BuildContext context) {
@@ -29,6 +52,36 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             },
           )
+        ],
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Center(
+            child: GestureDetector(
+              onTap: () {
+                if (isAnimated) {
+                  sizeDecrease();
+                  isAnimated = false;
+                } else {
+                  sizeIncrease();
+                  isAnimated = true;
+                }
+              },
+              child: AnimatedContainer(
+                duration: Duration(
+                  milliseconds: 400,
+                ),
+                curve: Curves.fastOutSlowIn,
+                height: _height,
+                width: _width,
+                color: color,
+                foregroundDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(radius),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
