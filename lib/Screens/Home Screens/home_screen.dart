@@ -76,9 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: _height,
                 width: _width,
                 color: color,
-                foregroundDecoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(radius),
-                ),
+                
               ),
             ),
           ),
