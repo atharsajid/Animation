@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       darkTheme: CustomTheme.darkTheme,
       themeMode: currenttheme.currenttheme,
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
